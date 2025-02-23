@@ -13,12 +13,17 @@ enum Theme {
 
 class ViewController: UIViewController {
 
+	@IBOutlet weak var actualThemeLabel: UILabel!
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		changeTheme(to: .blue)
 	}
 
 	func changeTheme(to theme: Theme) {
+		let themeName = String(describing: theme)
+		actualThemeLabel.text = "The actual theme is: \(themeName)"
+
 		switch theme {
 		case .blue:
 			view.backgroundColor = .blue
